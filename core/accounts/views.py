@@ -20,7 +20,7 @@ from dj_rest_auth.registration.views import SocialLoginView
 
 class GithubLogin(SocialLoginView):
     adapter_class = GitHubOAuth2Adapter
-    callback_url = "http://127.0.0.1:8000/accounts/github/callback/"
+    callback_url = "http://localhost:8000/accounts/dj-rest-auth/github/"
     client_class = OAuth2Client
 
     # @property

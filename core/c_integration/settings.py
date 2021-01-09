@@ -29,13 +29,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     #  cusotm apps
     'accounts', 
     'c_integration_app', 
 
-    'corsheaders',
     # third apps
-    'django.contrib.sites',
+    'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
     'dj_rest_auth',
@@ -114,13 +114,16 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.BasicAuthentication',
+                # 'rest_framework_simplejwt.authentication.JWTAuthentication',
+                       'rest_framework.authentication.BasicAuthentication',
+                        'rest_framework.authentication.TokenAuthentication',
+
     ),
 }
 
 
+# settings.py
+API_KEY_CUSTOM_HEADER = "JWT"
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
@@ -204,8 +207,7 @@ SOCIALACCOUNT_PROVIDERS = {
     'github': {
         'SCOPE': [
             'user',
-            'repo',
-            'read:org',
+            'repo'
         ],
     }
 }
