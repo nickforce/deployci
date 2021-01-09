@@ -124,7 +124,12 @@
   align-items: center; */
   padding-top: 4rem;
 }
-
+.w-alert {
+  margin-bottom: 3rem;
+}
+.fetch-btn {
+  font-size: 4rem;
+}
 @media (max-width: 767px) {
   .barsMenu {
     display: inline-block;
