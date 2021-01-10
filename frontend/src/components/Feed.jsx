@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import { List, Typography } from "antd";
 
 const { Title } = Typography;
@@ -12,7 +13,9 @@ export default class Feed extends Component {
           dataSource={this.props.list}
           renderItem={(item) => (
             <List.Item>
-              <Typography.Text></Typography.Text> {item}
+              <NavLink to="/Detail">
+                <Typography.Text>{item}</Typography.Text>
+              </NavLink>
             </List.Item>
           )}
         />

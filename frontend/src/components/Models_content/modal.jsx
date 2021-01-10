@@ -36,19 +36,6 @@ class MyModal extends React.Component {
           title="Title"
           onOk={this.handleOk}
           onCancel={this.handleCancel}
-          footer={[
-            <Button key="back" onClick={this.handleCancel}>
-              Return
-            </Button>,
-            <Button
-              key="submit"
-              type="primary"
-              loading={loading}
-              onClick={this.handleOk}
-            >
-              Submit
-            </Button>,
-          ]}
         >
           <p>Some contents...</p>
           <p>Some contents...</p>

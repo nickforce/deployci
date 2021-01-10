@@ -27,6 +27,7 @@ const EnvoirmentModal = () => {
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
+        footer={null}
       >
         <div className="">
           <EnvoirmentForm />
