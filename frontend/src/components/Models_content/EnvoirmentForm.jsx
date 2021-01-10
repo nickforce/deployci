@@ -1,4 +1,6 @@
 import { Form, Input, Button, Select } from "antd";
+import { useState } from "react";
+import axios from "axios";
 
 const { Option } = Select;
 
@@ -9,35 +11,52 @@ const layout = {
 const tailLayout = {
   wrapperCol: { offset: 4, span: 24 },
 };
-const selectBefore = (
-  <Select defaultValue="http://" className="select-before">
-    <Option value="http://">http://</Option>
-    <Option value="https://">https://</Option>
-  </Select>
-);
-const selectAfter = (
-  <Select defaultValue=".com" className="select-after">
-    <Option value=".com">.com</Option>
-    <Option value=".jp">.jp</Option>
-    <Option value=".cn">.cn</Option>
-    <Option value=".org">.org</Option>
-  </Select>
-);
+
 const EnvoirmentForm = () => {
+  const [form] = Form.useForm();
+  const [name, setName] = useState("");
+  const [type, setType] = useState("");
+  const [url, setUrl] = useState("");
+  const handleSubmit = (e) => {
+    const data = { name: name, type: type, url: url };
+    axios
+      .post(`https://jsonplaceholder.typicode.com/posts`, data)
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
+    console.log(data);
+    form.resetFields();
+  };
+
   return (
-    <Form {...layout} name="control-hooks">
+    <Form
+      {...layout}
+      onSubmitCapture={handleSubmit}
+      form={form}
+      name="control-hooks"
+    >
       <Form.Item name="Name" label="Name" rules={[{ required: true }]}>
-        <Input placeholder="please enter Name" />
+        <Input
+          placeholder="please enter Name"
+          onChange={(e) => setName(e.target.value)}
+        />
       </Form.Item>
       <Form.Item name="Type" label="Type" rules={[{ required: true }]}>
-        <Input placeholder="please enter GitHub repo" />
+        <Input
+          placeholder="please enter GitHub repo"
+          onChange={(e) => setType(e.target.value)}
+        />
       </Form.Item>
       <Form.Item name="Url" label="Url" rules={[{ required: true }]}>
-        <Input
+        {/* <Input
           id="url"
           addonBefore={selectBefore}
           addonAfter={selectAfter}
-          defaultValue="mysite"
+          placeholder="Enter website Name"
+          onChange={(e) => console.log(e)}
+        /> */}
+        <Input
+          placeholder="enter your website url"
+          onChange={(e) => setUrl(e.target.value)}
         />
       </Form.Item>
 
