@@ -8,6 +8,7 @@ import About from "./components/About";
 import ContactUs from "./components/ContactUs";
 import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
+import Detail from "./components/Models_content/detail";
 
 export default class App extends Component {
   render() {
@@ -21,6 +22,7 @@ export default class App extends Component {
             <Route path="/ContactUs" component={ContactUs} /> */}
             <Route path="/SignIn" component={SignIn} />
             <Route path="/SignUp" component={SignUp} />
+            <Route path="/Detail" component={Detail} />
           </Switch>
         </Router>
       </div>

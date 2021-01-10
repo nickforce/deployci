@@ -27,6 +27,7 @@ const EmployeesModal = () => {
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
+        footer={null}
       >
         <div className="">
           <EmployeesForm />

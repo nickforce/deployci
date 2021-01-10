@@ -27,6 +27,7 @@ const JobsModal = () => {
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
+        footer={null}
       >
         <div className="">
           <JobsForm />
