@@ -20,17 +20,22 @@ const SignUp = () => {
     if (password === confirmPassword) {
       setIsAlert(false);
       const data = {
-        name: name,
+        username: name,
         email: email,
-        password: password,
-        confirmPassword: confirmPassword,
+        password1: password,
+        password2: confirmPassword,
       };
       axios
-        .post("https://jsonplaceholder.typicode.com/posts", data)
-        .then((response) => console.log(response))
-        .catch((error) => console.log(error));
-      form.resetFields();
-      console.log("submitted");
+        .post("http://localhost:8000/dj-rest-auth/registration/", data)
+        .then((response) => {
+          // console.log(response.data.key);
+          localStorage.setItem("signUp-key", response.data.key);
+          const key = localStorage.getItem("signUp-key");
+          console.log(key);
+          form.resetFields();
+          console.log("submitted");
+        })
+        .catch((error) => console.log(error.message));
     } else {
       e.preventDefault();
       setIsAlert(true);

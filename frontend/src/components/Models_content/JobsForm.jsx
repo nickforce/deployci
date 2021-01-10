@@ -17,14 +17,37 @@ const JobsForm = () => {
   const [name, setName] = useState("");
   const [type, setType] = useState("");
   const [relation, setRelation] = useState("");
-  const handleSubmit = (e) => {
-    const data = { name: name, type: type, relation: relation };
-    axios
-      .post(`https://jsonplaceholder.typicode.com/posts`, data)
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error));
+  var myHeaders = new Headers();
+  myHeaders.append(
+    "Authorization",
+    "Token 534e3c7926e61695de705b3bffaf34625ec9f9a5"
+  );
+  myHeaders.append("Content-Type", "application/json");
+  var raw = JSON.stringify({ name: "usma", type: "werew", deploy: 3 });
+  var requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow",
+  };
 
-    form.resetFields();
+  const handleSubmit = (e) => {
+    const loginKey = localStorage.getItem("login-key");
+    const SignUpKey = localStorage.getItem("signUp-key");
+    // var data = JSON.stringify({ name: name, type: type });
+    // const data = { name: name, type: type, deploy: relation };
+    fetch("http://localhost:8000/ci/cijobs/create/", requestOptions)
+      .then((response) => response.json())
+      .then((json) => console.log(json))
+      .catch((err) => console.log(err));
+    // const data = { name: name, type: type, deploy: relation };
+    // axios
+    //   .post(`https://jsonplaceholder.typicode.com/posts`, data)
+    //   .then((response) => {
+    //     console.log(response);
+    //     form.resetFields();
+    //   })
+    //   .catch((error) => console.log(error));
   };
   const handleSelect = (e) => {
     setRelation(e);

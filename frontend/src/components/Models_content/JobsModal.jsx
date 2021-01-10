@@ -23,7 +23,7 @@ const JobsModal = () => {
         <i className="fas fa-plus-circle fa-2x "></i>
       </Button>
       <Modal
-        title="Create Environment"
+        title="Create Jobs"
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}

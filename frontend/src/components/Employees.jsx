@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { List, Typography } from "antd";
 import EmployeesModal from "./Models_content/EmployeeModal";
+import MyModal from "./Models_content/modal";
 
 export default class Employees extends Component {
   render() {
@@ -9,7 +10,8 @@ export default class Employees extends Component {
         <div className="employees my-flex">
           <h1>Deploys</h1>
           <h1>
-            <EmployeesModal />
+            {/* <EmployeesModal /> */}
+            <MyModal />
           </h1>
         </div>
         <List
