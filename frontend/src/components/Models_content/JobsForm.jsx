@@ -23,7 +23,7 @@ const JobsForm = () => {
     "Token 534e3c7926e61695de705b3bffaf34625ec9f9a5"
   );
   myHeaders.append("Content-Type", "application/json");
-  var raw = JSON.stringify({ name: "usma", type: "werew", deploy: 3 });
+  var raw = JSON.stringify({ name: "usma", type: "werew", deploy: 2 });
   var requestOptions = {
     method: "POST",
     headers: myHeaders,
