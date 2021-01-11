@@ -30,10 +30,16 @@ const EmployeesForm = () => {
         setIsSuccessed(true);
         form.resetFields();
         setSpin(false);
+        setTimeout(() => {
+          setIsSuccessed(false);
+        }, 2000);
       })
       .catch((error) => {
         setMessage(JSON.stringify(error.message));
         setIsFailed(true);
+        setTimeout(() => {
+          setIsFailed(false);
+        }, 2000);
       });
   };
 

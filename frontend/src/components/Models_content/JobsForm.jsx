@@ -21,22 +21,6 @@ const JobsForm = () => {
   const [name, setName] = useState("");
   const [type, setType] = useState("");
   const [relation, setRelation] = useState("");
-<<<<<<< HEAD
-  var myHeaders = new Headers();
-  myHeaders.append(
-    "Authorization",
-    "Token 534e3c7926e61695de705b3bffaf34625ec9f9a5"
-  );
-  myHeaders.append("Content-Type", "application/json");
-  var raw = JSON.stringify({ name: "usma", type: "werew", deploy: 2 });
-  var requestOptions = {
-    method: "POST",
-    headers: myHeaders,
-    body: raw,
-    redirect: "follow",
-  };
-=======
->>>>>>> 2b90ee38c1317876e1236bf4dd2601354a46eb3e
 
   const handleSubmit = (e) => {
     setSpin(true);
@@ -47,11 +31,17 @@ const JobsForm = () => {
         setIsSuccessed(true);
         form.resetFields();
         setSpin(false);
+        setTimeout(() => {
+          setIsSuccessed(false);
+        }, 2000);
       })
       .catch((error) => {
         setMessage(JSON.stringify(error.message));
         setIsFailed(true);
         console.log(error);
+        setTimeout(() => {
+          setIsFailed(false);
+        }, 2000);
       });
   };
   const handleSelect = (e) => {
