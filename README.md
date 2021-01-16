@@ -5,6 +5,10 @@
 
 ## Deployci Project Readme
 
+## 
+* pip3 freeze
+* pip3 install -r requirements.txt
+
 
 ### instructions for local setup 
 * install Python form [Python](https://www.python.org/)
@@ -27,4 +31,6 @@ _for creating and testing data through admin_
 * commands for creating superuser 
  - python manage.py createsuperuser 
 * after that you can login to admin site [http://localhost:8000/admin/]
+
+
  
