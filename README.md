@@ -1,6 +1,10 @@
-## Deployci Project Readme
 
 ## frontend docs
+## aws docs
+## postgres docs-
+
+## Deployci Project Readme
+
 
 ### instructions for local setup 
 * install Python form [Python](https://www.python.org/)
