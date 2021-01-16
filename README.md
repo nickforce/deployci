@@ -1,7 +1,7 @@
 
 ## frontend docs
 ## aws docs
-## postgres docs-
+## postgres docs
 
 ## Deployci Project Readme
 
