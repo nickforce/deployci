@@ -42,8 +42,10 @@ export default class App extends Component {
             <Route path="/SignUp" component={SignUp} /> 
               {/* <Route path="/Detail" component={Detail} />   */}
           </Switch>
+          
         </Router>
       </div>
+      
     );
   }
 }

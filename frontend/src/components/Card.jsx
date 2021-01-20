@@ -92,45 +92,81 @@ export default function Card() {
       },
     };
 
-    return (
-      <form onSubmit={handleSubmit}>
-        <h1>
-          {currency.toLocaleUpperCase()}{" "}
-          {amount.toLocaleString(navigator.language, {
-            minimumFractionDigits: 2,
-          })}{" "}
-        </h1>
-        <h4>Pre-order the Pasha package</h4>
+	return (
+		<div className="sr-root">
+			<div className="sr-main">
+          		<header className="sr-header">
+            <div className="sr-header__logo" />
+          </header>
+				<form onSubmit={handleSubmit}>
+              <h1>
+                {currency.toLocaleUpperCase()}{" "}
+                {amount.toLocaleString(navigator.language, {
+                  minimumFractionDigits: 2,
+                })}{" "}
+              </h1>
+              <h4>Pre-order the Pasha package</h4>
 
-        <div className="sr-combo-inputs">
-          <div className="sr-combo-inputs-row">
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Name"
-              autoComplete="cardholder"
-              className="sr-input"
-            />
-          </div>
+              <div className="sr-combo-inputs">
+                <div className="sr-combo-inputs-row">
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Name"
+                    autoComplete="cardholder"
+                    className="sr-input"
+                  />
+                </div>
 
-          <div className="sr-combo-inputs-row">
-            <CardElement
-              className="sr-input sr-card-element"
-              options={options}
-            />
-          </div>
-        </div>
+                <div className="sr-combo-inputs-row">
+                  <CardElement 
+                    className="sr-input sr-card-element"
+                    options={options}
+                  />
+                </div>
+              </div>
 
-        {error && <div className="message sr-field-error">{error}</div>}
+              {error && <div className="message sr-field-error">{error}</div>}
 
-        <button
-          className="btn"
-          disabled={processing || !clientSecret || !stripe}
-        >
-          {processing ? "Processing…" : "Pay"}
-        </button>
-      </form>
+              <button
+                className="btn"
+                disabled={processing || !clientSecret || !stripe}
+              >
+                {processing ? "Processing…" : "Pay"}
+              </button>
+            </form>
+          	</div>
+
+          	<div className="sr-content">
+            	<div className="pasha-image-stack">
+					<img
+						alt=""
+						src="https://picsum.photos/280/320?random=1"
+						width="140"
+						height="160"
+					/>
+					<img
+						alt=""
+						src="https://picsum.photos/280/320?random=2"
+						width="140"
+						height="160"
+					/>
+					<img
+						alt=""
+						src="https://picsum.photos/280/320?random=3"
+						width="140"
+						height="160"
+					/>
+					<img
+						alt=""
+						src="https://picsum.photos/280/320?random=4"
+						width="140"
+						height="160"
+					/>
+            	</div>
+          	</div>
+		</div>
     );
   };
 
