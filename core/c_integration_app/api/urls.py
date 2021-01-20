@@ -1,6 +1,5 @@
-
-
 from django.urls import path 
+from . import views
 
 from .views import (
    CreateCiDeployView, 
@@ -10,7 +9,7 @@ from .views import (
       # list api view 
       JobsListApiView, 
      EnvListApiView, 
-     DeployListApiView 
+     DeployListApiView
   )
 urlpatterns = [
      
@@ -21,5 +20,8 @@ urlpatterns = [
      path('ci/jobs/' , JobsListApiView.as_view() , name="jobs-list"), 
      path('ci/envs/' , EnvListApiView.as_view() , name="jobs-list"), 
      path('ci/deploy/' , DeployListApiView.as_view() , name="jobs-list"),
+     path('public-key', views.public_key),
+     path('product-details', views.get_product_details),
+     path('create-payment-intent', views.create_payment_intent)
 
 ]

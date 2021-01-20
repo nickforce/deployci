@@ -15,7 +15,7 @@ urlpatterns = [
     path('', include('c_integration_app.api.urls')),
     path('accounts/', include('allauth.urls'), name='socialaccount_signup'),
     path('get_access_token/api/', include('accounts.api.urls')),
-
+    
     
 
     # path('api-token-auth/', obtain_jwt_token),
