@@ -93,7 +93,7 @@ export default function Card() {
     };
 
 	return (
-		<div className="sr-root">
+		<div className="sr-root sr-root-card">
 			<div className="sr-main">
           		<header className="sr-header">
             <div className="sr-header__logo" />
@@ -101,11 +101,12 @@ export default function Card() {
 				<form onSubmit={handleSubmit}>
               <h1>
                 {currency.toLocaleUpperCase()}{" "}
-                {amount.toLocaleString(navigator.language, {
+                ${amount.toLocaleString(navigator.language, {
                   minimumFractionDigits: 2,
-                })}{" "}
+                })}/month{" "}
+				
               </h1>
-              <h4>Pre-order the Pasha package</h4>
+              <h4>Deploy CI Professional</h4>
 
               <div className="sr-combo-inputs">
                 <div className="sr-combo-inputs-row">

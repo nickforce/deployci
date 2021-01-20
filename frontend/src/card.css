@@ -1,38 +1,9 @@
-.sr-combo-inputs {
-    margin: 20px 0;
+
+
+
+.card-stripe-custom {
+
 }
-
-.sr-input {
-    font-size: 16px;
-}
-
-.sr-card-element {
-    padding-top: 12px;
-}
-
-.btn {
-    font-size: 16px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -62,43 +33,10 @@
   }
   
   /* Base */
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    font-family: var(--body-font-family);
-    font-size: 16px;
-    color: var(--body-color);
-    -webkit-font-smoothing: antialiased;
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: var(--body-color);
-    margin-top: 2px;
-    margin-bottom: 4px;
-  }
-  h1 {
-    font-size: 27px;
-    color: var(--headline-color);
-    line-height: 30px;
-  }
-  h4 {
-    font-weight: 500;
-    font-size: 14px;
-    color: var(--gray-light);
-  }
+ 
   
-  /* Layout */
-  .App {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+  
+  
   .sr-root {
     display: flex;
     flex-direction: row;
@@ -162,12 +100,6 @@
   /* Form */
   .sr-form-row {
     margin: 16px 0;
-  }
-  label {
-    font-size: 13px;
-    font-weight: 500;
-    margin-bottom: 8px;
-    display: inline-block;
   }
   
   /* Inputs */
@@ -586,10 +518,14 @@
 /* Pasha styles – Brand-overrides, can split these out */
 
 :root {
-    --accent-color: #ed5f74;
+    /* --accent-color: #ed5f74;
     --success-color: #5fed82;
     --headline-color: var(--accent-color);
-    --logo-image: url("https://storage.googleapis.com/stripe-sample-images/logo-pasha.svg");
+    --logo-image: url("https://storage.googleapis.com/stripe-sample-images/logo-pasha.svg"); */
+}
+
+.sr-root-card {
+    --logo-image:none !important;
 }
 
 .pasha-image-stack {
@@ -637,3 +573,20 @@
         top: 0;
     }
 }
+
+.sr-combo-inputs {
+    margin: 20px 0;
+}
+
+.sr-input {
+    font-size: 16px;
+}
+
+.sr-card-element {
+    padding-top: 12px;
+}
+
+.btn {
+    font-size: 16px;
+}
+
