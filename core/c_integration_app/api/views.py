@@ -63,7 +63,8 @@ def product_details():
 @csrf_exempt
 def create_payment_intent(request):
     # Reads application/json and returns a response
-    data = json.loads(request.data or '{}')
+    # data = json.loads(request.data or '{}')
+    data = json.loads('{}')
     product = product_details()
 
     options = dict()
@@ -71,6 +72,7 @@ def create_payment_intent(request):
     options.update(product)
     
     # Create a PaymentIntent with the order amount and currency
+    print(options)
     payment_intent = stripe.PaymentIntent.create(**options)
     print(payment_intent)
     return JsonResponse(payment_intent)
@@ -80,5 +82,3 @@ def create_payment_intent(request):
     # except Exception as e:
     #     return JsonResponse(payment_intent)
     #     #return JsonResponse(error=str(e))#, 403)
-
-    
