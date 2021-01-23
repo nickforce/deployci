@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     #  cusotm apps
     'accounts', 
-    'c_integration_app', 
+    'c_integration_app.apps.CIntegrationAppConfig', 
 
     # third apps
     'corsheaders',
