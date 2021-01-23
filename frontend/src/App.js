@@ -12,10 +12,15 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import Card from "./components/Card";
 import GithubOAuth from './components/GithubOauth'
+import SalesforceDashboard from "./components/SalesforceDashboard"
 // import Detail from "./components/Models_content/detail";
 // import axios from "axios";
 import api from "./stripe_api";
+
 const stripePromise = api.getPublicStripeKey().then(key => loadStripe(key));
+var forcetk = window.forcetk;
+
+
 
 export default class App extends Component {
    
@@ -38,6 +43,7 @@ export default class App extends Component {
                     <Card / >
                 </Elements>
              </Route>
+             <Route path="/SalesforceDashboard" component={SalesforceDashboard} />
               <Route path="/SignIn" component={SignIn} />
             <Route path="/SignUp" component={SignUp} /> 
               {/* <Route path="/Detail" component={Detail} />   */}

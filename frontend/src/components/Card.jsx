@@ -57,7 +57,30 @@ export default function Card() {
       setSucceeded(true);
       setProcessing(false);
       setMetadata(payload.paymentIntent);
-      console.log("[PaymentIntent]", payload.paymentIntent);
+	  console.log("[PaymentIntent]", payload.paymentIntent);
+	  // 	[PaymentIntent] line 60
+		// 	{id: "pi_1IC5JSBWt7NC3oQaHZnvAZSO", object: "payment_intent", amount: 100, canceled_at: null, cancellation_reason: null, …}
+		// amount: 100
+		// canceled_at: null
+		// cancellation_reason: null
+		// capture_method: "automatic"
+		// client_secret: "pi_1IC5JSBWt7NC3oQaHZnvAZSO_secret_lh7g5hkvKj5txvKWyqWoMhX31"
+		// confirmation_method: "automatic"
+		// created: 1611243790
+		// currency: "usd"
+		// description: null
+		// id: "pi_1IC5JSBWt7NC3oQaHZnvAZSO"
+		// last_payment_error: null
+		// livemode: true
+		// next_action: null
+		// object: "payment_intent"
+		// payment_method: "pm_1IC5K2BWt7NC3oQahChDYQxi"
+		// payment_method_types: ["card"]
+		// receipt_email: null
+		// setup_future_usage: null
+		// shipping: null
+		// source: null
+		// status: "succeeded"
     }
   };
 
@@ -90,7 +113,9 @@ export default function Card() {
           iconColor: "#fa755a",
         },
       },
-    };
+	};
+	
+
 
 	return (
 		<div className="sr-root sr-root-card">

@@ -22,6 +22,6 @@ urlpatterns = [
      path('ci/deploy/' , DeployListApiView.as_view() , name="jobs-list"),
      path('public-key', views.public_key),
      path('product-details', views.get_product_details),
-     path('create-payment-intent', views.create_payment_intent)
-
+     path('create-payment-intent', views.create_payment_intent),
+     path('jenkins-test', views.create_jenkins_version)
 ]
