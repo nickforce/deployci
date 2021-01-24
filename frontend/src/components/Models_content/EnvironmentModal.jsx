@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Modal, Button } from "antd";
-import EnvoirmentForm from "./EnvoirmentForm";
+import EnvironmentForm from "./EnvironmentForm";
 
-const EnvoirmentModal = (props) => {
+const EnvironmentModal = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
@@ -31,10 +31,10 @@ const EnvoirmentModal = (props) => {
       >
         <div className="">
         
-          <EnvoirmentForm get_updated_data={props.get_updated_data} />
+          <EnvironmentForm get_updated_data={props.get_updated_data} />
         </div>
       </Modal>
     </>
   );
 };
-export default EnvoirmentModal;
+export default EnvironmentModal;

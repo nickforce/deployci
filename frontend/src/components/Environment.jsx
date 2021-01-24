@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { List, Typography, Row, Col } from "antd";
-import EnvoirmentModal from "./Models_content/EnvoirmentModal";
+import EnvironmentModal from "./Models_content/EnvironmentModal";
 import axios from "axios";
 
-export default class Envoirment extends Component {
+export default class Environment extends Component {
   
 
   state={
@@ -45,14 +45,14 @@ export default class Envoirment extends Component {
     return (
       <div>
         <div className="my-flex">
-          <h1>Envoirment</h1>
+          <h1>Environments</h1>
           <h1>
-            <EnvoirmentModal get_updated_data ={this.get_updated_data} />
+            <EnvironmentModal get_updated_data ={this.get_updated_data} />
           </h1>
         </div>
 
         <List
-          className="envoirment"
+          className="environment"
           bordered
           dataSource={this.state.envs}
           renderItem={(item) => (

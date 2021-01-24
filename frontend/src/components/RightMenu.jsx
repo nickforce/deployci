@@ -64,7 +64,7 @@ class RightMenu extends Component {
 			{ this.state.is_authenticated && (
 			<>
 			<Menu.Item key="log">
-				<NavLink to="/Signin" onClick={(e)=>{localStorage.clear();
+				<NavLink to="/SignIn" onClick={(e)=>{localStorage.clear();
 		this.setState({is_authenticated:false})}} >Log out {this.state.is_authenticated}</NavLink>
 				{/* <Button type="default" htmlType="button" shape="round" onClick={this.handleLogout}>	
 				</Button> */}

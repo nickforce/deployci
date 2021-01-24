@@ -12,7 +12,7 @@ const tailLayout = {
   wrapperCol: { offset: 4, span: 24 },
 };
 
-const EnvoirmentForm = (props) => {
+const EnvironmentForm = (props) => {
   
   const [form] = Form.useForm();
   
@@ -160,4 +160,4 @@ console.log(repos);
     </Spin>
   );
 };
-export default EnvoirmentForm;
+export default EnvironmentForm;

@@ -16,44 +16,38 @@ import SalesforceDashboard from "./components/SalesforceDashboard"
 // import Detail from "./components/Models_content/detail";
 // import axios from "axios";
 import api from "./stripe_api";
+import axios from "axios";
 
 const stripePromise = api.getPublicStripeKey().then(key => loadStripe(key));
 var forcetk = window.forcetk;
 
-
-
 export default class App extends Component {
-   
-
-  componentDidUpdate(){
-    console.log("chla");
-  }
-  render() {
-    return (
-      <div className="App">
-        <Router>
-
-          <Navbar />
-          
-          <Switch>
-            <Route path="/" exact component={Home} />
-             <Route path="/accounts/auth/github/" component={GithubOAuth} />
-             <Route path="/Card" component={Card}>
-                <Elements stripe = { stripePromise } >
-                    <Card / >
-                </Elements>
-             </Route>
-             <Route path="/SalesforceDashboard" component={SalesforceDashboard} />
-              <Route path="/SignIn" component={SignIn} />
-            <Route path="/SignUp" component={SignUp} /> 
-              {/* <Route path="/Detail" component={Detail} />   */}
-          </Switch>
-          
-        </Router>
-      </div>
-      
+	
+	componentDidUpdate() {
+		console.log("chla");
+	}
+	
+    render() {
+	return ( 
+        <div className = "App" >
+			<Router>
+            	<Navbar / >
+              	<Switch >
+					<Route path = "/" exact component = { Home } />	
+					<Route path = "/accounts/auth/github/" component = { GithubOAuth } /> 
+					<Route path = "/Card" component = { Card } >
+						<Elements stripe = { stripePromise } >
+						<Card / >
+						</Elements> 
+                	</Route > 
+					<Route path = "/SalesforceDashboard" component = { SalesforceDashboard } /> 
+					<Route path = "/SignIn" component = { SignIn } /> 
+					<Route path = "/SignUp" component = { SignUp } />  
+					{/* < Route path = "/Detail" component = { Detail } /> */}
+				</Switch>
+			</Router> 
+		</div >
     );
-  }
+	}
 }
-
 // export default App;
