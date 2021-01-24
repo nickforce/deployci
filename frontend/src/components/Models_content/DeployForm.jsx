@@ -11,38 +11,34 @@ const tailLayout = {
   wrapperCol: { offset: 5, span: 24 },
 };
 
-const DeploysForm = (props) => {
-
-  
-  useEffect(() => {
+const DeployForm = (props) => {
+	useEffect(() => {
     
-    const token =localStorage.getItem('access_token')
-    axios.get("http://localhost:8000/ci/envs/", {
-      headers: {
-      Authorization: 'Bearer ' + token
-      }
+    	const token =localStorage.getItem('access_token')
+    	axios.get("http://localhost:8000/ci/envs/", {
+      		headers: {
+      		Authorization: 'Bearer ' + token
+      	}
     }).then(res => {
-      setEnvs(res.data);
-      })
-    
-    
-    } , [])
+		// setEnvs(res.data);
+	})
+	} , [])
 
 
-  const [form] = Form.useForm();
-  const [message, setMessage] = useState("");
-  const [isFailed, setIsFailed] = useState(false);
-  const [isSuccessed, setIsSuccessed] = useState(false);
-  const [spin, setSpin] = useState(false);
-  const [name, setName] = useState("");
-  const [type, setType] = useState("");
-  const [env1, setEnv1] = useState("");
-  const [envs, setEnvs] = useState([]);
+  	const [form] = Form.useForm();
+  	const [message, setMessage] = useState("");
+  	const [isFailed, setIsFailed] = useState(false);
+  	const [isSuccessed, setIsSuccessed] = useState(false);
+  	const [spin, setSpin] = useState(false);
+  	const [name, setName] = useState("");
+  	const [type, setType] = useState("");
+  // const [env1, setEnv1] = useState("");
+  // const [envs, setEnvs] = useState([]);
 
   const handleSubmit = (e) => {
     setSpin(true);
     // const data = { name: name, type: type, env1: env1, env2: env2 };
-    const data = { name: name, type: type, env1: env1  };
+    const data = { name: name, type: type};// , env1: env1  };
     const token = localStorage.getItem("access_token")
     axios
       .post(`http://localhost:8000/ci/deploy/create/`, data , 
@@ -60,7 +56,7 @@ const DeploysForm = (props) => {
 
         setName("")
         setType("")
-        setEnv1("")
+        // setEnv1("")
         setTimeout(() => {
           setIsSuccessed(false)
         }, 4000);
@@ -106,10 +102,10 @@ const DeploysForm = (props) => {
         <Form.Item name="Type" label="Type" rules={[{ required: true }]}>
           <Input onChange={(e) => setType(e.target.value)} />
         </Form.Item>
-        <Form.Item
+        {/* <Form.Item
           name="Environment"
           label="Environment"
-          rules={[{ required: true }]}
+          rules={[{ required: false }]}
         >
           <Select onChange={(e) => setEnv1(e)} placeholder="Select a option ">
            {  
@@ -118,7 +114,7 @@ const DeploysForm = (props) => {
               )
             } 
           </Select>
-        </Form.Item>
+        </Form.Item> */}
         {/* <Form.Item
           name="Environment"
           label="Environment"
@@ -140,4 +136,4 @@ const DeploysForm = (props) => {
     </Spin>
   );
 };
-export default DeploysForm;
+export default DeployForm;

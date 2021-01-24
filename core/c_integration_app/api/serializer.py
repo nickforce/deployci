@@ -5,15 +5,15 @@ from c_integration_app.models import Ci_deploy , Ci_envs , Ci_jobs
 
 
 class CiDeploySerializer(serializers.ModelSerializer):
-    env_name = serializers.SerializerMethodField(read_only= True)
+    # env_name = serializers.SerializerMethodField(read_only= True)
     class Meta:
         model = Ci_deploy
         fields =[
             'id',  
             'name',  
-            'type', 
-            'env1',
-            'env_name'
+            'type'#, 
+            # 'env1',
+            # 'env_name'
         ]
     def get_env_name(self , obj):
         return obj.env1.name 

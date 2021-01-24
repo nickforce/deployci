@@ -103,7 +103,7 @@
     border-bottom-color: transparent;
 }
 
-.employees {
+.deploys {
     margin-left: 1rem;
     margin-right: 1rem;
 }
@@ -156,7 +156,7 @@
     .logo a {
         padding: 10px 20px;
     }
-    .employees {
+    .deploys {
         margin: 1rem auto;
         /* margin-left: auto;
     margin-right: auto; */
