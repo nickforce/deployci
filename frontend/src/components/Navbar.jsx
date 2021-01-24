@@ -30,7 +30,15 @@ class Navbar extends Component {
     return (
       <nav className="menuBar">
         <div className="logo">
-          <NavLink to="/"> Ci Deploy </NavLink>
+          <NavLink to="/"> 
+            {/* <img
+              alt=""
+              src="https://picsum.photos/280/320?random=1"
+              width="45"
+              height="50"
+					  />  */}
+            deploy_ci
+          </NavLink>
         </div>
         <div className="menuCon">
           {/* <div className="leftMenu">
