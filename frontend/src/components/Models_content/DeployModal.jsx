@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Modal, Button } from "antd";
-import EmployeesForm from "./EmployeesForm";
+import DeployForm from "./DeployForm";
 
-const EmployeesModal = (props) => {
+const DeployModal = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
@@ -30,10 +30,10 @@ const EmployeesModal = (props) => {
         footer={null}
       >
         <div className="">
-          <EmployeesForm get_updated_data={props.get_updated_data} />
+          <DeployForm get_updated_data={props.get_updated_data} />
         </div>
       </Modal>
     </>
   );
 };
-export default EmployeesModal;
+export default DeployModal;

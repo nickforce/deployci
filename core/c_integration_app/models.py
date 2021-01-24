@@ -12,7 +12,7 @@ class Ci_envs(models.Model):
 class Ci_deploy(models.Model):
     name  = models.CharField(max_length=255)
     type  = models.CharField(max_length=255)
-    env1  = models.ForeignKey(Ci_envs , on_delete= models.CASCADE)
+    env1  = models.ForeignKey(Ci_envs , on_delete= models.CASCADE, default='null')
 
 
 class Ci_jobs(models.Model):

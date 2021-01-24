@@ -59,21 +59,28 @@ class RightMenu extends Component {
 { !this.state.is_authenticated && (
 
 <>
+        <Menu.Item key="card">
+          <NavLink to="/card"> card </NavLink>
+        </Menu.Item>
+
+        <Menu.Item key="salesforce">
+          <NavLink to="/salesforcedashboard"> login with salesforce </NavLink>
+        </Menu.Item>
 
         <Menu.Item key="/SignIn">
-          <NavLink  to="/SignIn"
-           > Sign In </NavLink>
+          <NavLink  to="/signin"> log in </NavLink>
         </Menu.Item>
-
+{/* 
         <Menu.Item key="app">
           <NavLink to="/SignUp"> Sign Up </NavLink>
-        </Menu.Item>
+        </Menu.Item> */}
 
 </>
 
 )}
 
 { this.state.is_authenticated && (
+        
         <Menu.Item key="log">
           <NavLink to="/Signin" onClick={(e)=>{localStorage.clear();
   this.setState({is_authenticated:false})}}  >Log out</NavLink>

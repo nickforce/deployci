@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { List, Typography } from "antd";
-import EmployeesModal from "./Models_content/EmployeeModal";
+import DeployModal from "./Models_content/DeployModal";
 import axios from "axios";
 
-export default class Employees extends Component {
+export default class Deploys extends Component {
 
 
 
@@ -47,14 +47,14 @@ export default class Employees extends Component {
   render() {
     return (
       <div>
-        <div className="employees my-flex">
+        <div className="deploys my-flex">
           <h1>Deploys</h1>
           <h1>
-            <EmployeesModal get_updated_data={this.get_updated_data} />
+            <DeployModal get_updated_data={this.get_updated_data} />
           </h1>
         </div>
         <List
-          className="employees"
+          className="deploys"
           bordered
           dataSource={this.state.deploys}
           renderItem={(item) => (

@@ -11,7 +11,7 @@ const tailLayout = {
   wrapperCol: { offset: 5, span: 24 },
 };
 
-const EmployeesForm = (props) => {
+const DeploysForm = (props) => {
 
   
   useEffect(() => {
@@ -140,4 +140,4 @@ const EmployeesForm = (props) => {
     </Spin>
   );
 };
-export default EmployeesForm;
+export default DeploysForm;
