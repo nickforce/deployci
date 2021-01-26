@@ -23,7 +23,7 @@ const JobsModal = (props) => {
         <i className="fas fa-plus-circle fa-2x "></i>
       </Button>
       <Modal
-        title="Create Jobs"
+        title="setup a new job"
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}

@@ -31,13 +31,19 @@ class Navbar extends Component {
       <nav className="menuBar">
         <div className="logo">
           <NavLink to="/"> 
-            {/* <img
+          
+            <img
               alt=""
-              src="https://picsum.photos/280/320?random=1"
+              src="https://www.dropbox.com/s/ok1t3s414ctkwn5/awesomesauce.png?dl=1"
               width="45"
               height="50"
-					  />  */}
-            deploy_ci
+					  /> 
+            
+          </NavLink>
+          <NavLink to="/"> 
+          deploy_ci
+            
+            
           </NavLink>
         </div>
         <div className="menuCon">

@@ -45,7 +45,7 @@ export default class Environment extends Component {
     return (
       <div>
         <div className="my-flex">
-          <h1>Environments</h1>
+          <h1>Envs</h1>
           <h1>
             <EnvironmentModal get_updated_data ={this.get_updated_data} />
           </h1>
