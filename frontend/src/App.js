@@ -12,6 +12,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import Card from "./components/Card";
 import GithubOAuth from './components/GithubOauth'
+import Githublog from './components/Githublog'
 import SalesforceDashboard from "./components/SalesforceDashboard"
 // import Detail from "./components/Models_content/detail";
 // import axios from "axios";
@@ -42,7 +43,8 @@ export default class App extends Component {
                 	</Route > 
 					<Route path = "/SalesforceDashboard" component = { SalesforceDashboard } /> 
 					<Route path = "/SignIn" component = { SignIn } /> 
-					<Route path = "/SignUp" component = { SignUp } />  
+					<Route path = "/SignUp" component = { SignUp } />
+					<Route path = "/gh_login" component = { Githublog } />  
 					{/* < Route path = "/Detail" component = { Detail } /> */}
 				</Switch>
 			</Router> 
