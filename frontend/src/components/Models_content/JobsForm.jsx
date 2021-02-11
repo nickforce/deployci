@@ -1,6 +1,8 @@
-import { Alert, Checkbox, Spin, Form, Input, Button, Select } from "antd";
+import { Alert, Checkbox, Spin, Form, Input, Button, Select, Steps, Divider } from "antd";
+
 import React, { useState  , useEffect} from "react";
 import axios from "axios";
+import JobSteps from "./JobSteps";
 
 const { Option } = Select;
 
@@ -46,7 +48,7 @@ const JobsForm = (props) => {
   const [scanForDestructive, setScanForDestructive] = useState("");
   const [relation, setRelation] = useState("");
   const [jobs , setjobs] = useState([]);
-    
+  const { Step } = Steps;
 
   
   const handleSubmit = (e) => {
@@ -96,6 +98,7 @@ const JobsForm = (props) => {
     console.log(`checked = ${e.target.checked}`);
   }
   return (
+    
     <Spin spinning={spin} tip="Please Wait ...">
       {isSuccessed && (
         <Alert
@@ -114,34 +117,37 @@ const JobsForm = (props) => {
           closable
         />
       )}
+      <JobSteps></JobSteps>
       <Form
         onSubmitCapture={handleSubmit}
         {...layout}
         form={form}
         name="control-hooks"
       >
-        <Form.Item name="Type" label="type" rules={[{ required: false }]}>
-          <Input disabled="true" defaultValue="salesforce" onChange={(e) => setType(e.target.value)} />
-        </Form.Item>
-        <Form.Item name="deployOptions" label="options" rules={[{ required: false }]}>
-          {/* <Checkbox onChange={onChange}>Differential Only Deploy</Checkbox> */}
+        
+        {/* <Form.Item name="deployOptions" label="options" rules={[{ required: false }]}>
           <Checkbox onChange={onChange}>Validate Only Deploy</Checkbox>
+        </Form.Item> */}
+          {/* <Checkbox onChange={onChange}>Differential Only Deploy</Checkbox> */}
+          
           {/* <Checkbox onChange={onChange}>Skip Selenium</Checkbox>
           <Checkbox onChange={onChange}>Scan for Destructive</Checkbox> */}
           {/* <Input onChange={(e) => setDiffDeploy(e.target.value)} /> */}
-        </Form.Item>
-        <b>Where is your code now?</b> <br/>
+        
+        <br/><b>Where is your code now?</b><br/><br/>
         <Form.Item name="sourceBranch" label="source" rules={[{ required: false }]}>
           <Input placeholder="feature/something" onChange={(e) => setSourceBranch(e.target.value)} />
         </Form.Item>
-        <b>Where are you moving your code to?</b> <br/>
+        {/* <b>Where are you moving your code to?</b> <br/>
         <Form.Item name="targetEnv" label="target" rules={[{ required: false }]}>
           <Input placeholder="sf_qa_env" onChange={(e) => setTargetEnv(e.target.value)} />
-        </Form.Item>
+        </Form.Item> */}
         {/* <Form.Item name="Name" label="Name" rules={[{ required: true }]}>
           <Input onChange={(e) => setName(e.target.value)} />
         </Form.Item> */}
-        
+        <Form.Item name="Type" label="type" rules={[{ required: false }]}>
+          <Input disabled="true" defaultValue="salesforce deploy" onChange={(e) => setType(e.target.value)} />
+        </Form.Item>
         
         {/* <Form.Item name="validateDeploy" label="validateDeploy" rules={[{ required: false }]}>
         
@@ -158,7 +164,7 @@ const JobsForm = (props) => {
  */}
 
         
-        
+{/*         
         
         <Form.Item name="testLevel" label="test_level" rules={[{ required: false }]}>
           <Input onChange={(e) => setTestLevel(e.target.value)} />
@@ -166,7 +172,7 @@ const JobsForm = (props) => {
         <Form.Item name="specTests" label="specify" rules={[{ required: false }]}>
           <Input placeholder="ex.Apex1, Apex2" onChange={(e) => setSpecTests(e.target.value)} />
         </Form.Item>
-       
+        */}
         {/* <Form.Item name="deploye" label="deploye" rules={[{ required: true }]}>
           <Select onChange={handleSelect} placeholder="Select a option ">
                         
@@ -185,7 +191,7 @@ const JobsForm = (props) => {
 
         <Form.Item {...tailLayout}>
           <Button type="primary" htmlType="submit">
-            Submit
+            Next
           </Button>
         </Form.Item>
       </Form>

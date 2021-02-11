@@ -41,7 +41,7 @@ class Navbar extends Component {
             
           </NavLink>
           <NavLink to="/"> 
-          deploy_ci
+          deploy
             
             
           </NavLink>
