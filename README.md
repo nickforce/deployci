@@ -14,7 +14,6 @@
  - python manage.py runserver 
 
 
-
 ## OPTIONAL
 _for creating and testing data through admin_
 * open terminal or cmd in root dir where _manage.py_ 

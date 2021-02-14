@@ -12,6 +12,14 @@ export default class Home extends Component {
     is_authicate:false
   };  
 
+  componentDidMount(){
+     
+        if( ! localStorage.getItem("access_token"))
+        {
+          window.location ='/Signin'
+        }
+  }
+
   render() {
     return (
       <div>
