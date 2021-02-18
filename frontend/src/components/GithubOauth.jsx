@@ -36,7 +36,7 @@ class GithubOAuth extends Component {
         // 837110772a688d8baff7
         // b7c3df511dc5c6a975f0
         axios
-        .post("http://localhost:8000/accounts/dj-rest-auth/github/", data)
+        .post("http://localhost:3000/accounts/dj-rest-auth/github/", data)
         .then((response) => {
             console.log(response);
             localStorage.setItem("access_token", response.data.access_token);
