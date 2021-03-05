@@ -4,6 +4,12 @@ import axios from "axios";
 
 const { Option } = Select;
 
+const style = {
+  // color: 'red',
+  // fontSize: 200, 
+  marginTop:'30px', 
+  // background
+};
 const layout = {
   labelCol: { span: 4 },
   wrapperCol: { span: 20 },
@@ -19,31 +25,25 @@ const EnvoirmentForm = (props) => {
     useEffect(()=>{
   
   
-      const token  =localStorage.getItem('access_token')
+      const token  =localStorage.getItem('access_token_custom')
         
-       
-      axios.get("http://localhost:8000/get_access_token/api/", {
-        headers: {
-        Authorization: 'Bearer ' + token
-        }
-      }).then(res => {
-        // setGithub_access_token(res.data.code);
-        console.log(res.data.code);
+      
   
         axios.get("https://api.github.com/user/repos", {
         headers: {
-        Authorization: 'token ' + res.data.code
+        Authorization: 'token ' + token
   
         }}).then(ress => {
           setSpin(true)
           
           console.log(ress.data);
           setRepos( ress.data)
+          setIs_github_auth(true);
         setSpin(false)
         
         
       })
-    })
+    // })
     
     // console.log(github_access_token)
     
@@ -55,7 +55,7 @@ const EnvoirmentForm = (props) => {
   const [name, setName] = useState("");
   const [type, setType] = useState("");
   const [url, setUrl] = useState("");
-  const [github_access_token, setGithub_access_token] = useState("");
+  const [is_github_auth, setIs_github_auth] = useState(false);
   const [repos, setRepos] = useState([]);
   // const [isLoading, setLOADING] = useState(false);
   
@@ -67,7 +67,7 @@ console.log(repos);
     const data = { name: name, type: type, url_repo: url };
     const token =localStorage.getItem('access_token')
     axios
-      .post(`http://localhost:8000/ci/envs/create/`, data ,
+      .post(`https://www.nickjohnson.cloud/ci/envs/create/`, data ,
       {
         headers:{
           Authorization: 'Bearer ' + token
@@ -88,14 +88,14 @@ console.log(repos);
           setIsSuccessed(false)
         }, 4000);
       })
-      // .catch((error) => {
-      //   setMessage(JSON.stringify(error.response.data));
-      //   setIsFailed(true);
-      //   setSpin(false);
-      //   setTimeout(() => {
-      //     setIsFailed(false)
-      //   }, 4000);
-      // });
+      .catch((error) => {
+        setMessage(JSON.stringify(error.response.data));
+        setIsFailed(true);
+        setSpin(false);
+        setTimeout(() => {
+          setIsFailed(false)
+        }, 4000);
+      });
   };
 
    return (
@@ -134,25 +134,37 @@ console.log(repos);
             placeholder="please enter GitHub repo"
             onChange={(e) => setType(e.target.value)}
           />
-        </Form.Item>
+
+{!is_github_auth &&(
+               <a style={style} href="https://github.com/login/oauth/authorize?client_id=973f2ad639a04981c414&scope=repo">
+                  Sign In with Github <i class="fab fa-github"></i>
+                </a>
+)}
+                  </Form.Item>
+                {is_github_auth &&(
         <Form.Item name="Repos Url" label="Repos Url" rules={[{ required: true }]}>
-         
-       
-<Select onChange={(e) => setUrl(e) } placeholder="Select a option ">
+         <Select onChange={(e) => setUrl(e) } placeholder="Select a option ">
                   
                   {!spin &&(
-
+                    
                     repos.map((repo) =>
-                         <Option value={repo.clone_url}>{repo.clone_url }</Option>
-                        )
-                  )        
+                    <Option value={repo.clone_url}>{repo.clone_url }</Option>
+                    )
+                    )        
                
                   }
                      
                         
                          </Select>
-                         </Form.Item>        
+                         </Form.Item> 
+                )  
+                  }
+
+
+
         <Form.Item {...tailLayout}>
+      
+      
           <Button type="primary" htmlType="submit">
             Submit</Button>
         </Form.Item>

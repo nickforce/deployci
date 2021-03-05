@@ -26,7 +26,7 @@ class RightMenu extends Component {
     
     const token = localStorage.getItem("access_token")
       axios
-      .post(`http://localhost:8000/dj-rest-auth/token/verify/`, 
+      .post(`https://www.nickjohnson.cloud/dj-rest-auth/token/verify/`, 
         {
               "token": token 
         }
@@ -77,9 +77,7 @@ class RightMenu extends Component {
         <Menu.Item key="log">
           <NavLink to="/Signin" onClick={(e)=>{localStorage.clear();
   this.setState({is_authenticated:false})}}  >Log out</NavLink>
-          {/* <Button type="default" htmlType="button" shape="round" onClick={this.handleLogout}>
-            
-          </Button> */}
+        
         </Menu.Item>
 )}
 

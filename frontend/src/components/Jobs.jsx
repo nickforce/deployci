@@ -29,7 +29,7 @@ componentDidMount() {
 
 
 
-  axios.get("http://localhost:8000/ci/jobs/", {
+  axios.get("https://www.nickjohnson.cloud/ci/jobs/", {
      headers: {
    Authorization: 'Bearer ' + token
     }

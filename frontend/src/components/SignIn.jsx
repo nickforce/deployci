@@ -1,6 +1,7 @@
-import { Alert, Spin, Form, Input, Button, Select } from "antd";
+import { Alert, Spin, Form, Input, Button, Select, Card } from "antd";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import GoogleIcon from '../assests/test.jpeg'
 const layout = {
   labelCol: { span: 6 },
   wrapperCol: { span: 10 },
@@ -35,7 +36,8 @@ const SignUp = (props) => {
       password: password,
     };
     axios
-      .post("http://localhost:8000/dj-rest-auth/login/", data)
+    
+      .post("https://www.nickjohnson.cloud/dj-rest-auth/login/", data)
       .then((response) => {
         console.log(response);
         localStorage.setItem("access_token", response.data.access_token);
@@ -83,6 +85,7 @@ const SignUp = (props) => {
             onSubmitCapture={handleSubmit}
             {...layout}
             name="control-hooks"
+            // bordered={false}
           >
             <Form.Item name="Email" label="Email" rules={[{ required: true }]}>
               <Input onChange={(e) => setUsername(e.target.value)} />
@@ -96,23 +99,56 @@ const SignUp = (props) => {
             >
               <Input.Password onChange={(e) => setPassword(e.target.value)} />
             </Form.Item>
-            <Form.Item {...tailLayout}>
-              <Button
-                id="github"
-                type="Default"
-                shape="round"
-                htmlType="button"
-              >
-                <a href="https://github.com/login/oauth/authorize?client_id=d2e1901c86b791f237f9&scope=repo">
-                  Sign In with Github <i class="fab fa-github"></i>
-                </a>
-              </Button>
-            </Form.Item>
+
+
             <Form.Item {...tailLayout}>
               <Button type="primary" shape="round" htmlType="submit">
                 Log In
               </Button>
             </Form.Item>
+
+
+ 
+
+
+            {/* <Card title="Card title" bordered={false} style={{ width: "auto" }}> */}
+
+            <Form.Item {...tailLayout}>
+
+
+            <Button
+                style={{ width: "auto" }}
+                size="large"
+                type="default"
+                shape=""
+                htmlType="button"
+              >
+                <a
+                //  href="https://github.com/login/oauth/authorize?&client_id=Iv1.f50a9e441abc37c0"
+                 href="https://accounts.google.com/o/oauth2/v2/auth?redirect_uri=https://nickjohnsondev.netlify.app/accounts/auth/google/&prompt=consent&response_type=code&client_id=1016211870076-0b889mk6je64gtpp87lejo2sfkldlbb0.apps.googleusercontent.com&scope=email&access_type=offline">
+                 
+                 {/* > */}
+                  <img
+                    style={{
+                      width: "14px",
+                      height: "auto",
+                    }}
+                    src={GoogleIcon}
+                    alt=""
+                  />
+                  <span
+                    style={{
+                      paddingLeft: "20px",
+                    }}
+                  >
+                    Sign in with Google{" "}
+                  </span>
+                </a>
+              </Button>
+
+            </Form.Item>
+           
+           {/* </Card> */}
           </Form>
         </Spin>
       </div>

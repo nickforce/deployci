@@ -16,7 +16,7 @@ export default class Envoirment extends Component {
     
     
     
-    axios.get("http://localhost:8000/ci/envs/", {
+    axios.get("https://www.nickjohnson.cloud/ci/envs/", {
       headers: {
         Authorization: 'Bearer ' + token
       }

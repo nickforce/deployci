@@ -22,7 +22,7 @@ const JobsForm = (props) => {
       const token  =localStorage.getItem('access_token')
       
      
-      axios.get("http://localhost:8000/ci/deploy/", {
+      axios.get("https://www.nickjohnson.cloud/ci/deploy/", {
         headers: {
         Authorization: 'Bearer ' + token
         }
@@ -49,7 +49,7 @@ const JobsForm = (props) => {
     setSpin(true);
     const data = { name: name, type: type, deploy: relation };
     console.log(data);
-    axios.post("http://localhost:8000/ci/cijobs/create/",
+    axios.post("https://www.nickjohnson.cloud/ci/cijobs/create/",
       data, 
      {
        headers: { Authorization: 'Bearer ' + token} 

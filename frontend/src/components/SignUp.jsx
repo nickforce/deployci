@@ -21,7 +21,7 @@ const SignUp = (props) => {
       token: token
     };
     axios
-      .post("http://localhost:8000/dj-rest-auth/token/verify/", data)
+      .post("https://www.nickjohnson.cloud/dj-rest-auth/token/verify/", data)
       .then((response) => {
         // console.log(response);
         // localStorage.setItem("access_token", response.data.access_token);
@@ -36,7 +36,7 @@ const SignUp = (props) => {
       .catch((error) => {
         setIsFailed(true);
         console.log(error);
-        setMessage(JSON.stringify("please Signup here"));
+        setMessage(JSON.stringify("Signup here"));
         setSpin(false);
       });
   
@@ -67,7 +67,7 @@ const SignUp = (props) => {
           password2: confirmPassword,
         };
         axios
-          .post("http://localhost:8000/dj-rest-auth/registration/", data)
+          .post("https://www.nickjohnson.cloud/dj-rest-auth/registration/", data)
           .then((response) => {
             // localStorage.setItem("signUp-key", response.data.key);
             // const key = localStorage.getItem("signUp-key");

@@ -28,7 +28,7 @@ export default class Employees extends Component {
     const token  =localStorage.getItem('access_token')
 
     
-    axios.get("http://localhost:8000/ci/deploy/", {
+    axios.get("https://www.nickjohnson.cloud/ci/deploy/", {
        headers: {
      Authorization: 'Bearer ' +  token
       }

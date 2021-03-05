@@ -17,7 +17,7 @@ const EmployeesForm = (props) => {
   useEffect(() => {
     
     const token =localStorage.getItem('access_token')
-    axios.get("http://localhost:8000/ci/envs/", {
+    axios.get("https://www.nickjohnson.cloud/ci/envs/", {
       headers: {
       Authorization: 'Bearer ' + token
       }
@@ -45,7 +45,7 @@ const EmployeesForm = (props) => {
     const data = { name: name, type: type, env1: env1  };
     const token = localStorage.getItem("access_token")
     axios
-      .post(`http://localhost:8000/ci/deploy/create/`, data , 
+      .post(`https://www.nickjohnson.cloud/ci/deploy/create/`, data , 
       {
         headers:{
           Authorization: 'Bearer ' + token
